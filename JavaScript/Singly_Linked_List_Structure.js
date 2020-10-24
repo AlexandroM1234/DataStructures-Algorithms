@@ -62,16 +62,33 @@ class SinglyLinkedList {
       return current;
     }
   }
+  // remove from the head
+  shift() {
+    // if there is no head return undefined
+    if (!this.head) return undefined;
+    else {
+      // if there is a head make the head.next the new head and decrement the length
+      let current = this.head;
+      let newHead = current.next;
+      this.head = newHead;
+      this.length -= 1;
+      // if the head is removed but still points to the tail set the tail to null
+      if (this.length === 0) {
+        this.tail = null;
+      }
+      // return the removed node(the previous head)
+      return current;
+    }
+  }
 }
 
 const list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
+list.push("WACK");
 // list.push("GOODBYE");
 // list.push("GOODBYE");
 // list.push("GOODBYE");
 // // list.push("Wack");
-
-console.log(list);
-console.log(list.pop());
+console.log(list.shift());
 console.log(list);

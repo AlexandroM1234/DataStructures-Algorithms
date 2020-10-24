@@ -13,7 +13,7 @@ class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
-  // Add a node to the linked list
+  // Add a node at the end of the linked list
   push(val) {
     // create a new node with a given value
     const newNode = new Node(val);
@@ -80,6 +80,24 @@ class SinglyLinkedList {
       return current;
     }
   }
+  // add a node to the beginning of the LL
+  unshfit(val) {
+    // create a new Node
+    const newHead = new Node(val);
+    // if there is no head the new node is the head and tail
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = this.head;
+    } else {
+      // make new nodes next the current head and make the head the new node
+      const currentHead = this.head;
+      newHead.next = currentHead;
+      this.head = newHead;
+    }
+    // increment the length and return the LL
+    this.length += 1;
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -90,5 +108,5 @@ list.push("WACK");
 // list.push("GOODBYE");
 // list.push("GOODBYE");
 // // list.push("Wack");
-console.log(list.shift());
-console.log(list);
+console.log(list.unshfit("nEW head"));
+console.log(list.unshfit("nEW headv2"));

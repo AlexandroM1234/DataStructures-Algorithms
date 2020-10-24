@@ -115,6 +115,18 @@ class SinglyLinkedList {
       return current;
     }
   }
+  // set a new value of a node with a given index
+  set(index, val) {
+    // use get function to get the node we are looking for
+    let node = this.get(index);
+    // if there is no node at that index return false
+    if (!node) return false;
+    // otherwise set the node's value to the new value and return true
+    else {
+      node.val = val;
+      return true;
+    }
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -127,4 +139,5 @@ list.push("WACK");
 // // list.push("Wack");
 // console.log(list.unshfit("nEW head"));
 // console.log(list.unshfit("nEW headv2"));
+console.log(list.set(2, "this is a set"));
 console.log(list.get(2));

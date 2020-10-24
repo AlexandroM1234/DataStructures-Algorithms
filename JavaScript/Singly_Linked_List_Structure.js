@@ -98,6 +98,20 @@ class SinglyLinkedList {
     this.length += 1;
     return this;
   }
+  // get the node at a certain index
+  get(index) {
+    if ((index >= this.length) | (index < 0)) {
+      return null;
+    } else {
+      let counter = 0;
+      let current = this.head;
+      while (counter != index) {
+        current = current.next;
+        counter += 1;
+      }
+      return current;
+    }
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -108,5 +122,6 @@ list.push("WACK");
 // list.push("GOODBYE");
 // list.push("GOODBYE");
 // // list.push("Wack");
-console.log(list.unshfit("nEW head"));
-console.log(list.unshfit("nEW headv2"));
+// console.log(list.unshfit("nEW head"));
+// console.log(list.unshfit("nEW headv2"));
+console.log(list.get(2));

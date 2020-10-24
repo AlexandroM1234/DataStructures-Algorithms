@@ -100,15 +100,18 @@ class SinglyLinkedList {
   }
   // get the node at a certain index
   get(index) {
+    // if index is less than zero or larger than the length of the LL return Null
     if ((index >= this.length) | (index < 0)) {
       return null;
     } else {
+      // otherwise traverse the LL and have a counter to get to the point where it equal the index we are looking for
       let counter = 0;
       let current = this.head;
       while (counter != index) {
         current = current.next;
         counter += 1;
       }
+      // once we get to the node we are looking for return it
       return current;
     }
   }

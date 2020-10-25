@@ -175,12 +175,35 @@ class SinglyLinkedList {
       return removeNode;
     }
   }
+  // reverse a linked list in place
+  reverse() {
+    // setup a refrence to the head
+    let node = this.head;
+    // swap the head and the tail
+    this.head = this.tail;
+    this.tail = this.head;
+    // now the tail is the refrence to the head
+    this.tail = node;
+    // setup next to be nothing but previous to null because the previous of the head("tail") is null
+    let next;
+    let prev = null;
+    // now while there are nodes to traverse
+    while (node) {
+      // next becomes the current node's.next
+      next = node.next;
+      // the current node's next becomes previous
+      node.next = prev;
+      // previous becomes the current node
+      prev = node;
+      // then the current node becomes the next node and traverses untill there are no nodes
+      node = next;
+    }
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("WACK");
-console.log(list);
-console.log(list.remove(0));
-console.log(list);
+console.log(list.reverse());

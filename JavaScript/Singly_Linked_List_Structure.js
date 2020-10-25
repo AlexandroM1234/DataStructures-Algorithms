@@ -153,11 +153,34 @@ class SinglyLinkedList {
       return true;
     }
   }
+  // remove a node given a certain index
+  remove(index) {
+    //  if the index isn't valid return undefined
+    if (index < 0 || index >= this.length) return undefined;
+    // if the index is 0 do unshift
+    if (index === 0) {
+      return this.shift();
+    } else if (index === this.length - 1) {
+      // if the index is the last in the LL do pop
+      return this.pop();
+    } else {
+      // if the index is in the middle get the node 1 before the node we want to remove
+      let prev = this.get(index - 1);
+      // set a variable for the removed node
+      let removeNode = prev.next;
+      // make the prev node's next to the removed node's next to get rid of the refrence
+      prev.next = removeNode.next;
+      // finally decrement the length of the LL and return the removed node
+      this.length -= 1;
+      return removeNode;
+    }
+  }
 }
 
 const list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("WACK");
-console.log(list.insert(3, "NEW 1"));
+console.log(list);
+console.log(list.remove(0));
 console.log(list);

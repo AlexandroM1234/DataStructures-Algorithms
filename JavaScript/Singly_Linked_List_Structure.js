@@ -101,7 +101,7 @@ class SinglyLinkedList {
   // get the node at a certain index
   get(index) {
     // if index is less than zero or larger than the length of the LL return Null
-    if ((index >= this.length) | (index < 0)) {
+    if (index >= this.length || index < 0) {
       return null;
     } else {
       // otherwise traverse the LL and have a counter to get to the point where it equal the index we are looking for
@@ -127,17 +127,37 @@ class SinglyLinkedList {
       return true;
     }
   }
+  // inserts a value at a certain index
+  insert(index, val) {
+    // if the index is greater than the length or negative return false
+    if (index < 0 || index > this.length) return false;
+    // if the index is 0 do the unshfit method
+    if (index === 0) {
+      this.unshfit(val);
+      return true;
+    } else if (index === this.length) {
+      // if the index is the length of the LL do the push method and return true
+      this.push(val);
+      return true;
+    } else {
+      // if the index is in the middle create a new node and get the node before the index we want
+      let newNode = new Node(val);
+      let prev = this.get(index - 1);
+      let temp = prev.next;
+      // point the previous node to the new node we want to insert
+      prev.next = newNode;
+      // point the new nodes next to the previous node's next
+      newNode.next = temp;
+      // finally increment the length and return true
+      this.length += 1;
+      return true;
+    }
+  }
 }
 
 const list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("WACK");
-// list.push("GOODBYE");
-// list.push("GOODBYE");
-// list.push("GOODBYE");
-// // list.push("Wack");
-// console.log(list.unshfit("nEW head"));
-// console.log(list.unshfit("nEW headv2"));
-console.log(list.set(2, "this is a set"));
-console.log(list.get(2));
+console.log(list.insert(3, "NEW 1"));
+console.log(list);

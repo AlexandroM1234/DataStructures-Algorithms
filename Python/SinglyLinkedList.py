@@ -5,6 +5,20 @@ class Node:
         self.next = None
 
 class SinglyLinkedList:
+    """
+    Space Complexity: O(N) N being the length of the LL
+    
+    Time Complexities:
+
+    Insertion = O(1) Add to the end or Adding to the begining of the LL
+
+    Removal = Depends if removing from the begining O(1) but removing from the end O(n)
+
+    Searching = O(N) worst case we are looking for a node at the end of the LL
+
+    Access = O(N) worst case what we are accessing is at the end of the LL
+
+    """
     # Linked List has a head tail and length
     def __init__(self):
         self.head = None

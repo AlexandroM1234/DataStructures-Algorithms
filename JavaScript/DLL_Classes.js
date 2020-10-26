@@ -27,12 +27,29 @@ class DoublyLinkedList {
     this.length += 1;
     return this;
   }
+  // remove a node from the tail
+  pop() {
+    if (!this.head) return undefined;
+
+    const prevTail = this.tail;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = prevTail.prev;
+      prevTail.prev = null;
+      this.tail.next = null;
+    }
+    this.length -= 1;
+    return prevTail;
+  }
 }
 
 let DLL = new DoublyLinkedList();
 
 DLL.push("First");
 DLL.push("Middle");
-DLL.push("Last");
+DLL.push("END");
+console.log(DLL.pop());
 
 console.log(DLL);

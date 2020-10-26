@@ -43,6 +43,22 @@ class DoublyLinkedList {
     this.length -= 1;
     return prevTail;
   }
+  // remove a node from the beginning of the DLL
+  shift() {
+    if (!this.head) return undefined;
+
+    const prevHead = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = prevHead.next;
+      prevHead.next = null;
+      this.head.prev = null;
+    }
+    this.length -= 1;
+    return prevHead;
+  }
 }
 
 let DLL = new DoublyLinkedList();
@@ -50,6 +66,4 @@ let DLL = new DoublyLinkedList();
 DLL.push("First");
 DLL.push("Middle");
 DLL.push("END");
-console.log(DLL.pop());
-
-console.log(DLL);
+console.log(DLL.shift());

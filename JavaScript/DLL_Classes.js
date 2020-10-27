@@ -68,17 +68,40 @@ class DoublyLinkedList {
     } else {
       this.head.prev = newHead;
       newHead.next = this.head;
-      newHead.prev = null;
       this.head = newHead;
     }
     this.length += 1;
     return this;
   }
+  // get a value at a given index
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let current;
+    const half = this.length / 2;
+    if (index < half) {
+      let counter = 0;
+      current = this.head;
+      while (counter !== index) {
+        current = current.next;
+        counter += 1;
+      }
+    } else {
+      let counter = this.length - 1;
+      current = this.tail;
+      while (counter !== index) {
+        current = current.prev;
+        counter -= 1;
+      }
+    }
+
+    return current;
+  }
 }
 
 let DLL = new DoublyLinkedList();
 
-// DLL.push("First");
-// DLL.push("Middle");
-// DLL.push("END");
-console.log(DLL.unshift("NEWHEAD"));
+DLL.push("First");
+DLL.push("Middle");
+DLL.push("END");
+DLL.push("newENd");
+console.log(DLL.get(1000));

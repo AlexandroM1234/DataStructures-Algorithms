@@ -107,7 +107,7 @@ class SinglyLinkedList {
       // otherwise traverse the LL and have a counter to get to the point where it equal the index we are looking for
       let counter = 0;
       let current = this.head;
-      while (counter != index) {
+      while (counter !== index) {
         current = current.next;
         counter += 1;
       }

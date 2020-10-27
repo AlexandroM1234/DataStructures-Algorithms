@@ -59,11 +59,26 @@ class DoublyLinkedList {
     this.length -= 1;
     return prevHead;
   }
+  // add a node at the beginning of the DLL
+  unshift(val) {
+    const newHead = new Node(val);
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = this.head;
+    } else {
+      this.head.prev = newHead;
+      newHead.next = this.head;
+      newHead.prev = null;
+      this.head = newHead;
+    }
+    this.length += 1;
+    return this;
+  }
 }
 
 let DLL = new DoublyLinkedList();
 
-DLL.push("First");
-DLL.push("Middle");
-DLL.push("END");
-console.log(DLL.shift());
+// DLL.push("First");
+// DLL.push("Middle");
+// DLL.push("END");
+console.log(DLL.unshift("NEWHEAD"));

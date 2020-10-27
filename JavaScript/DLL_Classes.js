@@ -96,6 +96,33 @@ class DoublyLinkedList {
 
     return current;
   }
+  // get a node and set a new value to it
+  set(index, val) {
+    let node = this.get(index);
+    if (!node) return null;
+    node.val = val;
+    return node;
+  }
+  // insert a node given an index and value
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) {
+      this.unshift(val);
+      return true;
+    } else if (index === this.length) {
+      this.push(val);
+      return true;
+    } else {
+      let newNode = new Node(val);
+      let prev = this.get(index - 1);
+      let temp = prev.next;
+      prev.next = newNode;
+      newNode.prev = prev;
+      newNode.next = temp;
+      temp.prev = newNode;
+      return true;
+    }
+  }
 }
 
 let DLL = new DoublyLinkedList();
@@ -104,4 +131,9 @@ DLL.push("First");
 DLL.push("Middle");
 DLL.push("END");
 DLL.push("newENd");
-console.log(DLL.get(1000));
+console.log(DLL.insert(3, "New end"));
+
+while (DLL.head) {
+  console.log(DLL.head.val);
+  DLL.head = DLL.head.next;
+}

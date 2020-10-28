@@ -7,6 +7,11 @@ class Node {
 }
 
 class DoublyLinkedList {
+  // Time Complexity:
+  // Insertion = O(1)
+  // Removal = O(1)
+  // Searching =  O(N)
+  // Access  = O(N)
   constructor() {
     this.head = null;
     this.tail = null;
@@ -125,6 +130,28 @@ class DoublyLinkedList {
       return true;
     }
   }
+  // remove a node from a certain index
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) {
+      return this.shift();
+    } else if (index === this.length - 1) {
+      return this.pop();
+    } else {
+      let before = this.get(index - 1);
+      let remove = before.next;
+      let after = remove.next;
+
+      before.next = after;
+      after.prev = before;
+
+      remove.prev = null;
+      remove.next = null;
+
+      this.length -= 1;
+      return remove;
+    }
+  }
 }
 
 let DLL = new DoublyLinkedList();
@@ -133,7 +160,7 @@ DLL.push("First");
 DLL.push("Middle");
 DLL.push("END");
 DLL.push("newENd");
-console.log(DLL.insert(3, "New end"));
+console.log(DLL.remove(3));
 console.log(DLL);
 // while (DLL.head) {
 //   console.log(DLL.head.val);

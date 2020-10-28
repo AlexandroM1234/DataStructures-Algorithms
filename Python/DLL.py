@@ -4,12 +4,29 @@ class Node:
         self.next = None
 
 class DoublyLinkedList:
+    """
+    Time Complexity: 
+
+    Insertion = O(1)
+
+    Removal = O(1)
+
+    Searching = O(N)
+
+    Access = O(N)
+
+    Most of the logic is the same as the SLL except dealing with the extra prev point
+
+    """
     def __init__(self):
         self.head = None
         self.tail = None
         self.length = 0
     
     def push(self,val):
+        """
+        Adds a new Node at the end of the DLL
+        """
         newNode = Node(val)
         if not self.head:
             self.head = newNode
@@ -21,8 +38,11 @@ class DoublyLinkedList:
             self.tail = newNode
         self.length += 1
         return self
-
+        
     def pop(self):
+        """
+        remove a node from the tail
+        """
         if not self.head: return None
         prevTail = self.tail
         if self.length == 1:
@@ -34,8 +54,11 @@ class DoublyLinkedList:
             self.tail.next = None
         self.length -= 1
         return prevTail
-    
+        
     def shift(self):
+        """
+        remove a  node from the beginning of the Dll
+        """
         if not self.head: return None
         prevHead = self.head
         if self.length == 1:
@@ -49,6 +72,9 @@ class DoublyLinkedList:
         return prevHead
 
     def unshift(self,val):
+        """
+        add a node at the beginning of the DLL
+        """
         newHead = Node(val)
         if not self.head:
             self.head = newHead
@@ -61,6 +87,9 @@ class DoublyLinkedList:
         return self
 
     def get(self,index):
+        """
+        get a node from a given index
+        """
         if index < 0 or index >= self.length: return None
         current = None
         half = self.length / 2
@@ -79,12 +108,18 @@ class DoublyLinkedList:
         return current
 
     def setNode(self,index,val):
+        """
+        set a node's value given its index and a new value
+        """
         node = self.get(index)
         if not node: return None
         node.val = val
         return node
     
     def insert(self,index,val):
+        """
+        insert a  new node at a given index
+        """
         if index < 0 or index > self.length: return False
 
         if index == 0:
@@ -106,6 +141,9 @@ class DoublyLinkedList:
             return True
 
     def remove(self,index):
+        """
+        remove a node from a given index
+        """
         if index < 0 or index >= self.length: return None
 
         if index == 0:

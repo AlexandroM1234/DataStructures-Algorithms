@@ -12,6 +12,7 @@ class DoublyLinkedList {
   // Removal = O(1)
   // Searching =  O(N)
   // Access  = O(N)
+  // Most of the logic is the same as the SLL except dealing with the extra prev point
   constructor() {
     this.head = null;
     this.tail = null;

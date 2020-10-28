@@ -115,11 +115,13 @@ class DoublyLinkedList {
     } else {
       let newNode = new Node(val);
       let prev = this.get(index - 1);
-      let temp = prev.next;
+      let after = prev.next;
+
       prev.next = newNode;
       newNode.prev = prev;
-      newNode.next = temp;
-      temp.prev = newNode;
+      newNode.next = after;
+      after.prev = newNode;
+      this.length += 1;
       return true;
     }
   }
@@ -132,8 +134,8 @@ DLL.push("Middle");
 DLL.push("END");
 DLL.push("newENd");
 console.log(DLL.insert(3, "New end"));
-
-while (DLL.head) {
-  console.log(DLL.head.val);
-  DLL.head = DLL.head.next;
-}
+console.log(DLL);
+// while (DLL.head) {
+//   console.log(DLL.head.val);
+//   DLL.head = DLL.head.next;
+// }

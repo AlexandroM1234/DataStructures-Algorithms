@@ -7,6 +7,12 @@ class Node {
 }
 
 class BinarySearchTree {
+  /* 
+  Time Complexity:
+    Insertion - O(log N)
+    Searching - O(log N)
+  */
+
   constructor() {
     this.root = null;
   }

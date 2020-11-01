@@ -7,6 +7,15 @@ class Node {
 }
 
 class SinglyLinkedList {
+  /*
+  Space Complexity: O(N) N being the length of the LL
+
+  Time Complexity:
+    Insertion = O(1)
+    Removal = O(1)
+    Searching =  O(N)
+    Access  = O(N
+  */
   //Linked List has a head tail and length
   constructor() {
     this.head = null;

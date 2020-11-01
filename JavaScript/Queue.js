@@ -18,11 +18,13 @@ class Node {
 }
 
 class Queue {
-  // Time Complexity
-  // Insertion = O(1)
-  // Removal = O(1)
-  // Search = O(N)
-  // Access = O(N)
+  /* 
+  Time Complexity:
+    Insertion = O(1)
+    Removal = O(1)
+    Search = O(N)
+    Access = O(N)
+  */
   constructor() {
     this.first = null;
     this.last = null;

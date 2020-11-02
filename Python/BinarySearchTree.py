@@ -68,15 +68,26 @@ class BinarySearchTree:
         # And once the node is found return it
         return current
 
+    def BFS(self):
+        q = []
+        visited = []
+        node = self.root
+        q.append(self.root)
+
+        while len(q):
+            node = q.pop(0)
+            visited.append(node.val)
+            if node.left: q.append(node.left)
+            if node.right: q.append(node.right)
+        return visited
+
 tree = BinarySearchTree()
 
 tree.insert(10)
-tree.insert(5)
-tree.insert(13)
-tree.insert(11)
-tree.insert(11)
-tree.insert(2)
-tree.insert(16)
-tree.insert(7)
+tree.insert(6)
+tree.insert(15)
+tree.insert(3)
+tree.insert(8)
+tree.insert(20)
 
-print(tree.find(7))
+print(tree.BFS())

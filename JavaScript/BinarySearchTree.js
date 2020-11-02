@@ -68,16 +68,44 @@ class BinarySearchTree {
     if (!found) return undefined;
     return current;
   }
+
+  BFS() {
+    let q = [];
+    let visited = [];
+    let current = this.root;
+    q.push(this.root);
+
+    while (q.length) {
+      current = q.shift();
+      visited.push(current.val);
+      if (current.left) q.push(current.left);
+      if (current.right) q.push(current.right);
+    }
+    return visited;
+  }
+
+  DFSPostOrder() {
+    // Start at the root traverse the whole left side then the right side
+    let s = [];
+    let visited = [];
+    let current = this.root;
+    s.push(this.root);
+
+    while (s.length) {
+      current = s.pop();
+      visited.push(current.val);
+      if (current.right) s.push(current.right);
+      if (current.left) s.push(current.left);
+    }
+    return visited;
+  }
 }
 
 let tree = new BinarySearchTree();
 tree.insert(10);
-tree.insert(5);
-tree.insert(13);
-tree.insert(11);
-tree.insert(11);
-tree.insert(2);
-tree.insert(16);
-tree.insert(7);
-console.log(tree.find(5));
-console.log(tree);
+tree.insert(6);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
+console.log(tree.DFS());

@@ -84,7 +84,7 @@ class BinarySearchTree {
     return visited;
   }
 
-  DFSPostOrder() {
+  DFSPreOrder() {
     // Start at the root traverse the whole left side then the right side
     let s = [];
     let visited = [];

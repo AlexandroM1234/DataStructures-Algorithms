@@ -69,6 +69,7 @@ class BinarySearchTree {
     return current;
   }
 
+  // Traverse every node row by row
   BFS() {
     let q = [];
     let visited = [];
@@ -84,6 +85,7 @@ class BinarySearchTree {
     return visited;
   }
 
+  // Traverse the tree by going parent left right
   DFSPreOrder() {
     let visited = [];
 
@@ -96,6 +98,7 @@ class BinarySearchTree {
     return visited;
   }
 
+  // Traverse the tree by going left right parent
   DFSPostOrder() {
     let visited = [];
 
@@ -108,6 +111,7 @@ class BinarySearchTree {
     return visited;
   }
 
+  // Traverse the tree by going left parent right
   DFSInOrder() {
     let visited = [];
 

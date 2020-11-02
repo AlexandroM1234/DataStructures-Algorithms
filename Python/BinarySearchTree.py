@@ -81,6 +81,41 @@ class BinarySearchTree:
             if node.right: q.append(node.right)
         return visited
 
+    def DFSInOrder(self):
+        visited = []
+
+        def traverse(node):
+            if node.left: traverse(node.left)
+            visited.append(node.val)
+            if node.right: traverse(node.right)
+
+        traverse(self.root)
+        return visited
+
+    def DFSPostOrder(self):
+        visited = []
+
+        def traverse(node):
+            if node.left: traverse(node.left)
+            if node.right: traverse(node.right)
+            visited.append(node.val)
+
+        traverse(self.root)
+        return visited
+
+    def DFSPreOrder(self):
+        visited = []
+
+        def traverse(node):
+            visited.append(node.val)
+            if node.left: traverse(node.left)
+            if node.right: traverse(node.right)
+
+        traverse(self.root)
+        return visited
+
+
+
 tree = BinarySearchTree()
 
 tree.insert(10)
@@ -90,4 +125,7 @@ tree.insert(3)
 tree.insert(8)
 tree.insert(20)
 
-print(tree.BFS())
+# print(tree.BFS())
+print(tree.DFSInOrder())
+print(tree.DFSPostOrder())
+print(tree.DFSPreOrder())

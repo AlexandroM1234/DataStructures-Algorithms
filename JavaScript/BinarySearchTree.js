@@ -85,22 +85,6 @@ class BinarySearchTree {
   }
 
   DFSPreOrder() {
-    // Start at the root traverse the whole left side then the right side
-    let s = [];
-    let visited = [];
-    let current = this.root;
-    s.push(this.root);
-
-    while (s.length) {
-      current = s.pop();
-      visited.push(current.val);
-      if (current.right) s.push(current.right);
-      if (current.left) s.push(current.left);
-    }
-    return visited;
-  }
-
-  DFSPreOrderRecursive() {
     let visited = [];
 
     const traverse = (node) => {
@@ -112,22 +96,7 @@ class BinarySearchTree {
     return visited;
   }
 
-  // DFSPostOrder() {
-  //   let s = [];
-  //   let visited = [];
-  //   let current = this.root;
-  //   s.push(this.root);
-
-  //   while (s.length) {
-  //     if (current.right) s.push(current.right);
-  //     if (current.left) s.push(current.left);
-  //     current = s.pop();
-  //     visited.push(current.val);
-  //   }
-  //   return visited;
-  // }
-
-  DFSPostOrderRecursive() {
+  DFSPostOrder() {
     let visited = [];
 
     const traverse = (node) => {
@@ -139,22 +108,7 @@ class BinarySearchTree {
     return visited;
   }
 
-  // DFSInOrder() {
-  //   let s = [];
-  //   let visited = [];
-  //   let current = this.root;
-  //   s.push(this.root);
-
-  //   while (s.length) {
-  //     if (current.right) s.push(current.right);
-  //     current = s.pop();
-  //     visited.push(current.val);
-  //     if (current.left) s.push(current.left);
-  //   }
-  //   return visited;
-  // }
-
-  DFSInOrderRecursive() {
+  DFSInOrder() {
     let visited = [];
 
     const traverse = (node) => {
@@ -174,10 +128,7 @@ tree.insert(15);
 tree.insert(3);
 tree.insert(8);
 tree.insert(20);
-console.log(tree.DFSInOrderRecursive());
-console.log(tree.DFSPostOrderRecursive());
-console.log(tree.DFSPreOrderRecursive());
 
-// console.log(tree.DFSInOrder());
-// console.log(tree.DFSPostOrder());
-// console.log(tree.DFSPreOrder());
+console.log(tree.DFSInOrder());
+console.log(tree.DFSPostOrder());
+console.log(tree.DFSPreOrder());

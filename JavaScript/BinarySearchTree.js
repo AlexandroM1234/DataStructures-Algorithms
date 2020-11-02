@@ -111,6 +111,60 @@ class BinarySearchTree {
     traverse(this.root);
     return visited;
   }
+
+  // DFSPostOrder() {
+  //   let s = [];
+  //   let visited = [];
+  //   let current = this.root;
+  //   s.push(this.root);
+
+  //   while (s.length) {
+  //     if (current.right) s.push(current.right);
+  //     if (current.left) s.push(current.left);
+  //     current = s.pop();
+  //     visited.push(current.val);
+  //   }
+  //   return visited;
+  // }
+
+  DFSPostOrderRecursive() {
+    let visited = [];
+
+    const traverse = (node) => {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      visited.push(node.val);
+    };
+    traverse(this.root);
+    return visited;
+  }
+
+  // DFSInOrder() {
+  //   let s = [];
+  //   let visited = [];
+  //   let current = this.root;
+  //   s.push(this.root);
+
+  //   while (s.length) {
+  //     if (current.right) s.push(current.right);
+  //     current = s.pop();
+  //     visited.push(current.val);
+  //     if (current.left) s.push(current.left);
+  //   }
+  //   return visited;
+  // }
+
+  DFSInOrderRecursive() {
+    let visited = [];
+
+    const traverse = (node) => {
+      if (node.left) traverse(node.left);
+      visited.push(node.val);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    return visited;
+  }
 }
 
 let tree = new BinarySearchTree();
@@ -120,5 +174,10 @@ tree.insert(15);
 tree.insert(3);
 tree.insert(8);
 tree.insert(20);
-console.log(tree.DFSPreOrder());
+console.log(tree.DFSInOrderRecursive());
+console.log(tree.DFSPostOrderRecursive());
 console.log(tree.DFSPreOrderRecursive());
+
+// console.log(tree.DFSInOrder());
+// console.log(tree.DFSPostOrder());
+// console.log(tree.DFSPreOrder());

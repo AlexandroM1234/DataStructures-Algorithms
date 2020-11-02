@@ -16,8 +16,10 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    # insert a new node into the BST
     def insert(self,val):
+        """
+        insert a new node into the BST
+        """
         # make the new node
         newNode = Node(val)
         # if there is no root the new node becomes the root
@@ -46,8 +48,10 @@ class BinarySearchTree:
                 # otherwise keep traversing the right subtree
                 current = current.right
                 
-   # find a value in the BST
     def find(self,val):
+        """
+        find a value in the BST
+        """
         # if there is no root there is no tree so return False
         if not self.root: return False
         current = self.root
@@ -69,6 +73,9 @@ class BinarySearchTree:
         return current
 
     def BFS(self):
+        """
+        Traverse BST Breadth First going row by row in the BST
+        """
         q = []
         visited = []
         node = self.root
@@ -82,6 +89,9 @@ class BinarySearchTree:
         return visited
 
     def DFSInOrder(self):
+        """
+        Traverse the BST Depth First traversing the left sub tree then parent then right tree
+        """
         visited = []
 
         def traverse(node):
@@ -93,6 +103,9 @@ class BinarySearchTree:
         return visited
 
     def DFSPostOrder(self):
+        """
+        Traverse the BST Depth First traversing left sub tree then right then the parent
+        """
         visited = []
 
         def traverse(node):
@@ -104,6 +117,9 @@ class BinarySearchTree:
         return visited
 
     def DFSPreOrder(self):
+        """
+        Traverse the BST Depth First traversing the parent then left sub tree then right
+        """
         visited = []
 
         def traverse(node):

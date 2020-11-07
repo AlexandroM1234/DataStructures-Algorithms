@@ -1,15 +1,18 @@
-// Binary Heaps can be made using an array/ list
-// For a max binary heap the greates number is in the first index
-// to find the children of a number/node formula is 2n + 1 for the left child and 2n+2 for the right child
-// to find the parent take a child's n - 1 / 2 and floor it to get a valid index
-
-class MaxBinaryHeap {
+class Node {
+  constructor(val, priority) {
+    this.val = val;
+    this.priority = priority;
+  }
+}
+// PriorityQueue is a Minimum Binary Heap so smallest number is the root
+class PriorityQueue {
   constructor() {
     this.values = [];
   }
-  insert(val) {
+  enqueue(val, priority) {
     // add the value to the end of the array
-    this.values.push(val);
+    let newNode = new Node(val, priority);
+    this.values.push(newNode);
     // get the index of the newly added item and the value
     let index = this.values.length - 1;
     let value = this.values[index];
@@ -18,18 +21,18 @@ class MaxBinaryHeap {
       // get the parentIndex and value
       let parentIndex = Math.floor((index - 1) / 2);
       let parent = this.values[parentIndex];
-      // if the new value is less than or equal to the parent no work needs to be done and the loop is over
-      if (value <= parent) break;
-      // if the value is greater the switch the parentValue and the childValue and then continue the loop with the index as the parent Index to see if that value is in the correct spot in the heap
+      // if the new value is greater than or equal to the parent no work needs to be done and the loop is over
+      if (value.priority >= parent.priority) break;
+      // if the value is less the switch the parentValue and the childValue and then continue the loop with the index as the parent Index to see if that value is in the correct spot in the heap
       this.values[parentIndex] = value;
       this.values[index] = parent;
       index = parentIndex;
     }
   }
-  // remove the largest number from the heap
-  extractMax() {
+  // remove the smallest number from the heap
+  dequeue() {
     // get the largest number and the last value
-    let max = this.values[0];
+    let min = this.values[0];
     let end = this.values.pop();
     // edge case if there is only 1 number in the heap just return the max
     if (this.values.length > 0) {
@@ -52,7 +55,7 @@ class MaxBinaryHeap {
           // if the index is valid assign leftChild the value at its index
           leftChild = this.values[leftChildIdx];
           // if the leftChild value is greater than the current value assign it's index to swap
-          if (leftChild > value) {
+          if (leftChild.priority > value.priority) {
             swap = leftChildIdx;
           }
         }
@@ -62,9 +65,9 @@ class MaxBinaryHeap {
           rightChild = this.values[rightChildIdx];
           if (
             // If swap is null and rightChild's value is greater than the current value swap it
-            (swap === null && rightChild > value) ||
+            (swap === null && rightChild.priority < value.priority) ||
             // Or if swap is assigned a value from the leftChild and the rightChild is greater than the left change swap from the left index to the right
-            (swap !== null && rightChild > leftChild)
+            (swap !== null && rightChild.priority < leftChild.priority)
           ) {
             swap = rightChildIdx;
           }
@@ -80,19 +83,16 @@ class MaxBinaryHeap {
       }
     }
 
-    return max;
+    return min;
   }
 }
 
-let heap = new MaxBinaryHeap();
+let priorityQueue = new PriorityQueue();
 
-heap.insert(41);
-heap.insert(39);
-heap.insert(33);
-heap.insert(18);
-heap.insert(27);
-heap.insert(12);
-heap.insert(55);
-console.log(heap.values);
-console.log(heap.extractMax());
-console.log(heap.values);
+priorityQueue.enqueue("common cold", 5);
+priorityQueue.enqueue("GSW", 1);
+priorityQueue.enqueue("high fever", 4);
+priorityQueue.enqueue("Broken Arm", 2);
+priorityQueue.enqueue("Puncture Wound", 3);
+
+console.log(priorityQueue);

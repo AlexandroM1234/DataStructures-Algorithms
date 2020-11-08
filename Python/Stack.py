@@ -16,14 +16,10 @@ class Node:
 class Stack:
     """
     Time Complexity:
-
-    Insertion = O(1)
-
-    Removal = O(1)
-
-    Search = O(N)
-    
-    Access = O(N)
+        Insertion = O(1)
+        Removal = O(1)
+        Search = O(N)
+        Access = O(N)
     """
     def __init__(self):
         self.first = None

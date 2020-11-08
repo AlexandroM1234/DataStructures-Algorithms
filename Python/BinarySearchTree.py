@@ -7,11 +7,9 @@ class Node:
 class BinarySearchTree:
     """
     Time Complexity:
+        Insertion - O(log N) 
+        Searching - O(log N)
     This is best and average case assuming the binary search tree is balanced
-
-    Insertion - O(log N) 
-
-    Searching - O(log N)
     """
     def __init__(self):
         self.root = None

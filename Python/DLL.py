@@ -6,15 +6,10 @@ class Node:
 class DoublyLinkedList:
     """
     Time Complexity: 
-
-    Insertion = O(1)
-
-    Removal = O(1)
-
-    Searching = O(N)
-
-    Access = O(N)
-
+        Insertion = O(1)
+        Removal = O(1)
+        Searching = O(N)
+        Access = O(N)
     Most of the logic is the same as the SLL except dealing with the extra prev point
 
     """

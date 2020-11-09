@@ -54,8 +54,8 @@ class PriorityQueue {
         if (leftChildIdx < length) {
           // if the index is valid assign leftChild the value at its index
           leftChild = this.values[leftChildIdx];
-          // if the leftChild value is greater than the current value assign it's index to swap
-          if (leftChild.priority > value.priority) {
+          // if the leftChild value is less than the current value assign it's index to swap
+          if (leftChild.priority < value.priority) {
             swap = leftChildIdx;
           }
         }
@@ -94,5 +94,4 @@ priorityQueue.enqueue("GSW", 1);
 priorityQueue.enqueue("high fever", 4);
 priorityQueue.enqueue("Broken Arm", 2);
 priorityQueue.enqueue("Puncture Wound", 3);
-
-console.log(priorityQueue);
+console.log(priorityQueue.values);

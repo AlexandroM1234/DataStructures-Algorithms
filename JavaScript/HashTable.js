@@ -34,9 +34,9 @@ class HashTable {
     if (this.keyMap[index]) {
       // loop through the array at that index
       for (let i = 0; i < this.keyMap[index].length; i++) {
-        // if the first value of the sub-array is the key return the key value pair
+        // if the first value of the sub-array is the key return the value at that key
         if (this.keyMap[index][i][0] === key) {
-          return this.keyMap[index][i];
+          return this.keyMap[index][i][1];
         }
       }
     }

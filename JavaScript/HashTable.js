@@ -4,7 +4,6 @@ class HashTable {
     Insertion: O(1)
     Deletion: O(1)
     Access: O(1) 
-
   */
   constructor(size = 4) {
     this.keyMap = new Array(size);
@@ -33,7 +32,7 @@ class HashTable {
     this.keyMap[index].push([key, val]);
     return this;
   }
-  // get the values at a certain key
+  // get the value at a certain key
   get(key) {
     // look up the index
     let index = this.hash(key);

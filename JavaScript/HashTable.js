@@ -1,4 +1,11 @@
 class HashTable {
+  /*  
+  Time Complexity:
+    Insertion: O(1)
+    Deletion: O(1)
+    Access: O(1) 
+
+  */
   constructor(size = 4) {
     this.keyMap = new Array(size);
   }
@@ -46,9 +53,13 @@ class HashTable {
   // return all the keys in the HT
   keys() {
     let keys = [];
+    // loop through the keymap
     for (let i = 0; i < this.keyMap.length; i++) {
+      // if there is something at that index
       if (this.keyMap[i]) {
+        // loop through the array at that index
         for (let j = 0; j < this.keyMap[i].length; j++) {
+          // only return non duplicate keys
           if (!keys.includes(this.keyMap[i][j][0])) {
             keys.push(this.keyMap[i][j][0]);
           }
@@ -59,6 +70,7 @@ class HashTable {
   }
 
   // return all the values in the HT
+  // same logic as keys except at index 1 which is the value
   values() {
     let values = [];
     for (let i = 0; i < this.keyMap.length; i++) {

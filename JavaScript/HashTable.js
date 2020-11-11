@@ -43,12 +43,45 @@ class HashTable {
     // if the index is invalid return undefined
     return undefined;
   }
+  // return all the keys in the HT
+  keys() {
+    let keys = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!keys.includes(this.keyMap[i][j][0])) {
+            keys.push(this.keyMap[i][j][0]);
+          }
+        }
+      }
+    }
+    return keys;
+  }
+
+  // return all the values in the HT
+  values() {
+    let values = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!values.includes(this.keyMap[i][j][1])) {
+            values.push(this.keyMap[i][j][1]);
+          }
+        }
+      }
+    }
+    return values;
+  }
 }
 
 let ht = new HashTable(17);
 
 ht.set("hello world", "good bye world");
 ht.set("this", "hi mom");
-
+ht.set("rice", "bean");
+ht.set("rice", "bean");
 console.log(ht);
 console.log(ht.get("this"));
+console.log(ht.get("rice"));
+console.log(ht.keys());
+console.log(ht.values());

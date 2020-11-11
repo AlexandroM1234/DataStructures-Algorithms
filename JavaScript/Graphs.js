@@ -4,7 +4,7 @@ class Graph {
   }
   // add a new vertex to the adjancenct list
   addVertex(key) {
-    this.adjacencyList[key] = [];
+    this.adjacencyList[key] = new Array();
     return this;
   }
 }

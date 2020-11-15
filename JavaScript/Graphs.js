@@ -40,20 +40,40 @@ class Graph {
     // finally delete the vertex
     delete this.adjacencyList[vertex];
   }
+  DFSR(vertex) {
+    const output = [];
+    const vistied = {};
+    const adjacencyList = this.adjacencyList;
+    function dfs(vertex) {
+      if (!vertex) return null;
+      vistied[vertex] = true;
+      output.push(vertex);
+      adjacencyList[vertex].forEach((neighbor) => {
+        if (!vistied[neighbor]) {
+          return dfs(neighbor);
+        }
+      });
+    }
+    dfs(vertex);
+    return output;
+  }
 }
 
 let g = new Graph();
 
-g.addVertex("Tokyo");
-g.addVertex("Hong Kong");
-g.addVertex("Kyoto");
-g.addVertex("Dallas");
-g.addVertex("Austin");
-g.addVertex("DC");
-g.addEdge("Tokyo", "Kyoto");
-g.addEdge("Hong Kong", "Kyoto");
-g.addEdge("DC", "Austin");
-g.addEdge("Dallas", "Austin");
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+
+g.addEdge("A", "B");
+g.addEdge("A", "C");
+g.addEdge("B", "D");
+g.addEdge("C", "E");
+g.addEdge("D", "E");
+g.addEdge("D", "F");
+g.addEdge("E", "F");
 console.log(g.adjacencyList);
-g.removeVertex("Tokyo");
-console.log(g.adjacencyList);
+console.log(g.DFSR("A"));

@@ -45,10 +45,15 @@ class Graph {
     const output = [];
     const vistied = {};
     const adjacencyList = this.adjacencyList;
+    // create a helper function for traversing
     function dfs(vertex) {
+      // if there is no vertex return null
       if (!vertex) return null;
+      // set the vertex in visited
       vistied[vertex] = true;
+      // push the vertex to the output array
       output.push(vertex);
+      // then for the values at the vertex if they are not in visited call bfs on it
       adjacencyList[vertex].forEach((neighbor) => {
         if (!vistied[neighbor]) {
           return dfs(neighbor);
@@ -64,10 +69,14 @@ class Graph {
     const output = [];
     const s = [];
     s.push(start);
+    // while the stack has something in it
     while (s.length) {
+      // get the last value of the stack
       let vertex = s.pop();
+      // set it to visited and push it to the ouput array
       vistied[vertex] = true;
       output.push(vertex);
+      // then for the values at thaat vertex set them to visited and add them to the stack
       this.adjacencyList[vertex].forEach((neighbor) => {
         if (!vistied[neighbor]) {
           vistied[neighbor] = true;
@@ -79,6 +88,7 @@ class Graph {
   }
   // BFS Itterative
   BFSI(start) {
+    // same logic as the DSF but instead of a stack we use a queue
     const vistied = {};
     const output = [];
     const q = [];

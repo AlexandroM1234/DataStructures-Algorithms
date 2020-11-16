@@ -40,6 +40,7 @@ class Graph {
     // finally delete the vertex
     delete this.adjacencyList[vertex];
   }
+  // DFS Recurisve
   DFSR(vertex) {
     const output = [];
     const vistied = {};
@@ -55,6 +56,25 @@ class Graph {
       });
     }
     dfs(vertex);
+    return output;
+  }
+  // DFS Itterative
+  DFSI(start) {
+    const vistied = {};
+    const output = [];
+    const s = [];
+    s.push(start);
+    while (s.length) {
+      let vertex = s.pop();
+      vistied[vertex] = true;
+      output.push(vertex);
+      this.adjacencyList[vertex].forEach((neighbor) => {
+        if (!vistied[neighbor]) {
+          vistied[neighbor] = true;
+          s.push(neighbor);
+        }
+      });
+    }
     return output;
   }
 }
@@ -75,5 +95,5 @@ g.addEdge("C", "E");
 g.addEdge("D", "E");
 g.addEdge("D", "F");
 g.addEdge("E", "F");
-console.log(g.adjacencyList);
+console.log(g.DFSI("A"));
 console.log(g.DFSR("A"));

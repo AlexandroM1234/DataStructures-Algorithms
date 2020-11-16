@@ -77,6 +77,25 @@ class Graph {
     }
     return output;
   }
+  // BFS Itterative
+  BFSI(start) {
+    const vistied = {};
+    const output = [];
+    const q = [];
+    q.push(start);
+    while (q.length) {
+      let vertex = q.shift();
+      vistied[vertex] = true;
+      output.push(vertex);
+      this.adjacencyList[vertex].forEach((neighbor) => {
+        if (!vistied[neighbor]) {
+          vistied[neighbor] = true;
+          q.push(neighbor);
+        }
+      });
+    }
+    return output;
+  }
 }
 
 let g = new Graph();
@@ -97,3 +116,4 @@ g.addEdge("D", "F");
 g.addEdge("E", "F");
 console.log(g.DFSI("A"));
 console.log(g.DFSR("A"));
+console.log(g.BFSI("A"));

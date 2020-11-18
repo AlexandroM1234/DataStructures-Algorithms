@@ -35,8 +35,52 @@ class Graph:
             self.removeEdge(vertex,adjacencyVertex)
 
         del self.adjacencyList[vertex]
-        
 
+    def DFSI(self, start):
+        """
+        Depth First Traversal Itterative
+        """
+        visited = {}
+        output = []
+        s = []
+
+        s.append(start)
+
+        while (len(s)):
+            vertex = s.pop()
+
+            visited[vertex] = True
+            output.append(vertex)
+
+            for neighbor in self.adjacencyList[vertex]:
+                if neighbor not in visited:
+                    visited[neighbor] = True
+                    s.append(neighbor)
+
+        return output
+
+    def BFSI(self, start):
+        """
+        Breadth First Traversal Itterative
+        """
+        visited = {}
+        output = []
+        q = []
+
+        q.append(start)
+
+        while (len(q)):
+            vertex = q.pop(0)
+
+            visited[vertex] = True
+            output.append(vertex)
+
+            for neighbor in self.adjacencyList[vertex]:
+                if neighbor not in visited:
+                    visited[neighbor] = True
+                    q.append(neighbor)
+
+        return output
 g = Graph()
 
 g.addVertex("A")
@@ -54,3 +98,5 @@ g.addEdge("D","E")
 g.addEdge("D","F")
 g.addEdge("E","F")
 print(g.adjacencyList)
+print(g.DFSI("A"))
+print(g.BFSI("A"))

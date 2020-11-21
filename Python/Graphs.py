@@ -44,9 +44,7 @@ class Graph:
         visited = {}
         output = []
         s = []
-
         s.append(start)
-
         while len(s):
             vertex = s.pop()
 

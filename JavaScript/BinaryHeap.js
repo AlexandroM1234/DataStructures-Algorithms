@@ -1,9 +1,12 @@
-/*
-Binary Heaps can be made using an array/ list
- For a max binary heap the greates number is in the first index
- to find the children of a number/node formula is 2n + 1 for the left child and 2n+2 for the right child
- to find the parent take a child's n - 1 / 2 and floor it to get a valid index
-*/
+/**
+ * Binary Heaps can be made using an array/ list
+
+ * For a max binary heap the greates number is in the first index
+
+ * To find the children of a number/node formula is 2n + 1 for the left child and 2n+2 for the right child
+
+ * To find the parent take a child's n - 1 / 2 and floor it to get a valid index
+ */
 class MaxBinaryHeap {
   /* 
   Time Complexity:

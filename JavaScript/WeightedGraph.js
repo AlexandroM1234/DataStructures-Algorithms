@@ -4,7 +4,9 @@ class Node {
     this.priority = priority;
   }
 }
-// PriorityQueue is a Minimum Binary Heap so smallest number is the root
+/**
+ * PriorityQueue is a Minimum Binary Heap so the smallest number is the root
+ */
 class PriorityQueue {
   constructor() {
     this.values = [];

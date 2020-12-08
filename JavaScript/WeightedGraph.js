@@ -92,19 +92,36 @@ class PriorityQueue {
     return min;
   }
 }
+/**
+ * A Graph with a value on the edges
+ */
 class WeightedGraph {
   constructor() {
     this.adjacencyList = {};
   }
-
+  /**
+   * Add a vertex to the Graph
+   * @param {*} vertex
+   */
   addVertex(vertex) {
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
   }
+  /**
+   * Add an edge between to vertices with a weight
+   * @param {*} v1
+   * @param {*} v2
+   * @param {number} weight
+   */
   addEdge(v1, v2, weight) {
     this.adjacencyList[v1].push({ node: v2, weight });
     this.adjacencyList[v2].push({ node: v1, weight });
   }
 
+  /**
+   * Return the shortest path between 2 vertices
+   * @param {*} startV
+   * @param {*} endV
+   */
   dijkstrasAlgo(startV, endV) {
     const distances = {};
     const q = new PriorityQueue();

@@ -30,7 +30,10 @@ class Queue {
     this.last = null;
     this.size = 0;
   }
-
+  /**
+   * Add a new value to the Queue
+   * @param {*} val
+   */
   enqueue(val) {
     const newNode = new Node(val);
     if (!this.first) {
@@ -42,7 +45,9 @@ class Queue {
     }
     return ++this.size;
   }
-
+  /**
+   * Remove the first item added to the Queue
+   */
   dequeue() {
     if (!this.first) return null;
     const temp = this.first;

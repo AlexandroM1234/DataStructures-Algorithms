@@ -8,8 +8,10 @@ class HashTable {
   constructor(size = 4) {
     this.keyMap = new Array(size);
   }
-
-  // basic hashing function
+  /**
+   * Basic hashing function
+   * @param {*} key
+   */
   hash(key) {
     let total = 0;
     let prime = 31;
@@ -20,7 +22,11 @@ class HashTable {
     }
     return total;
   }
-  // set a key value pair in the Hash Table
+  /**
+   * Set a key value pair in the Hash Table
+   * @param {*} key
+   * @param {*} val
+   */
   set(key, val) {
     // set the index of the key by hashing the key
     let index = this.hash(key);
@@ -32,7 +38,10 @@ class HashTable {
     this.keyMap[index].push([key, val]);
     return this;
   }
-  // get the value at a certain key
+  /**
+   * Get the value at a certain key
+   * @param {*} key
+   */
   get(key) {
     // look up the index
     let index = this.hash(key);
@@ -49,7 +58,9 @@ class HashTable {
     // if the index is invalid return undefined
     return undefined;
   }
-  // return all the keys in the HT
+  /**
+   * Return all the keys in the HT
+   */
   keys() {
     let keys = [];
     // loop through the keymap
@@ -67,9 +78,11 @@ class HashTable {
     }
     return keys;
   }
-
-  // return all the values in the HT
-  // same logic as keys except at index 1 which is the value
+  /**
+   * Return all the values in the HT
+   
+   * Same logic as keys except at index 1 which is the value
+   */
   values() {
     let values = [];
     for (let i = 0; i < this.keyMap.length; i++) {

@@ -2,13 +2,20 @@ class Graph {
   constructor() {
     this.adjacencyList = {};
   }
-  // add a new vertex to the adjancency list
+  /**
+   * Add a new vertex to the adjancency list
+   * @param {*} vertex
+   */
   addVertex(vertex) {
     // check for duplicate vertices and then add a new vertex as a key and a new array as the value
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = new Array();
     return this;
   }
-  // add a relationship from one vertext to another
+  /**
+   * Add a relationship from one vertext to another
+   * @param {*} v1
+   * @param {*} v2
+   */
   addEdge(v1, v2) {
     // check if both vertices are valid
     if (!this.adjacencyList[v1] || !this.adjacencyList[v2]) return undefined;
@@ -17,7 +24,11 @@ class Graph {
     this.adjacencyList[v2].push(v1);
     return this.adjacencyList;
   }
-  // remove an edge from one vertext to another
+  /**
+   * Remove an edge from one vertext to another
+   * @param {*} v1
+   * @param {*} v2
+   */
   removeEdge(v1, v2) {
     // check if both verticies are valid
     if (!this.adjacencyList[v1] || !this.adjacencyList[v2]) return undefined;
@@ -25,8 +36,10 @@ class Graph {
     this.adjacencyList[v1] = this.adjacencyList[v1].filter((v) => v !== v2);
     this.adjacencyList[v2] = this.adjacencyList[v2].filter((v) => v !== v1);
   }
-
-  // remove a vertex from the graph and all of its connections
+  /**
+   * Remove a vertex from the graph and all of its connections
+   * @param {*} vertex
+   */
   removeVertex(vertex) {
     // check if the vertex is valid
     if (!this.adjacencyList[vertex]) return undefined;
@@ -40,7 +53,10 @@ class Graph {
     // finally delete the vertex
     delete this.adjacencyList[vertex];
   }
-  // DFS Recurisve
+  /**
+   * DFS Recurisve
+   * @param {*} vertex
+   */
   DFSR(vertex) {
     const output = [];
     const vistied = {};
@@ -63,7 +79,10 @@ class Graph {
     dfs(vertex);
     return output;
   }
-  // DFS Itterative
+  /**
+   * DFS Itterative
+   * @param {*} start
+   */
   DFSI(start) {
     const vistied = {};
     const output = [];
@@ -86,7 +105,10 @@ class Graph {
     }
     return output;
   }
-  // BFS Itterative
+  /**
+   * BFS Itterative
+   * @param {*} start
+   */
   BFSI(start) {
     // same logic as the DSF but instead of a stack we use a queue
     const vistied = {};

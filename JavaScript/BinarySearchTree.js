@@ -17,7 +17,10 @@ class BinarySearchTree {
   constructor() {
     this.root = null;
   }
-  // insert a node into the binary search tree
+  /**
+   * Insert a node into the binary search tree
+   * @param {*} val
+   */
   insert(val) {
     // create the new node
     const newNode = new Node(val);
@@ -49,8 +52,11 @@ class BinarySearchTree {
       }
     }
   }
+  /**
+   * Find a value in the binary search tree
+   * @param {*} val
 
-  // find a value in the binary search tree
+   */
   find(val) {
     if (!this.root) return false;
     let current = this.root;
@@ -68,8 +74,9 @@ class BinarySearchTree {
     if (!found) return undefined;
     return current;
   }
-
-  // Traverse every node row by row
+  /**
+   * Traverse every node row by row
+   */
   BFS() {
     let q = [];
     let visited = [];
@@ -85,7 +92,9 @@ class BinarySearchTree {
     return visited;
   }
 
-  // Traverse the tree by going parent left right
+  /**
+   *  Traverse the tree by going parent left right
+   */
   DFSPreOrder() {
     let visited = [];
 
@@ -97,8 +106,9 @@ class BinarySearchTree {
     traverse(this.root);
     return visited;
   }
-
-  // Traverse the tree by going left right parent
+  /**
+   * Traverse the tree by going left right parent
+   */
   DFSPostOrder() {
     let visited = [];
 
@@ -110,8 +120,9 @@ class BinarySearchTree {
     traverse(this.root);
     return visited;
   }
-
-  // Traverse the tree by going left parent right
+  /**
+   * Traverse the tree by going left parent right
+   */
   DFSInOrder() {
     let visited = [];
 

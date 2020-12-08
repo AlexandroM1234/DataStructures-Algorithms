@@ -20,7 +20,10 @@ class DoublyLinkedList {
     this.tail = null;
     this.length = 0;
   }
-  // adds a new Node at then end of the DLL
+  /**
+   *  Adds a new Node at then end of the DLL
+   * @param {*} val
+   */
   push(val) {
     const newNode = new Node(val);
     if (!this.head) {
@@ -35,7 +38,9 @@ class DoublyLinkedList {
     this.length += 1;
     return this;
   }
-  // remove a node from the tail
+  /**
+   * Remove a node from the tail
+   */
   pop() {
     if (!this.head) return undefined;
 
@@ -51,7 +56,9 @@ class DoublyLinkedList {
     this.length -= 1;
     return prevTail;
   }
-  // remove a node from the beginning of the DLL
+  /**
+   * Remove a node from the beginning of the DLL
+   */
   shift() {
     if (!this.head) return undefined;
 
@@ -67,7 +74,10 @@ class DoublyLinkedList {
     this.length -= 1;
     return prevHead;
   }
-  // add a node at the beginning of the DLL
+  /**
+   * Add a node at the beginning of the DLL
+   * @param {*} val
+   */
   unshift(val) {
     const newHead = new Node(val);
     if (!this.head) {
@@ -81,7 +91,10 @@ class DoublyLinkedList {
     this.length += 1;
     return this;
   }
-  // get a value at a given index
+  /**
+   * Get a value at a given index
+   * @param {*} index
+   */
   get(index) {
     if (index < 0 || index >= this.length) return null;
     let current;
@@ -104,14 +117,22 @@ class DoublyLinkedList {
 
     return current;
   }
-  // get a node and set a new value to it
+  /**
+   * Get a node and set a new value to it
+   * @param {*} index
+   * @param {*} val
+   */
   set(index, val) {
     let node = this.get(index);
     if (!node) return null;
     node.val = val;
     return node;
   }
-  // insert a node given an index and value
+  /**
+   * Insert a node given an index and value
+   * @param {*} index
+   * @param {*} val
+   */
   insert(index, val) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) {
@@ -133,7 +154,10 @@ class DoublyLinkedList {
       return true;
     }
   }
-  // remove a node from a certain index
+  /**
+   * Remove a node from a certain index
+   * @param {*} index
+   */
   remove(index) {
     if (index < 0 || index >= this.length) return undefined;
     if (index === 0) {

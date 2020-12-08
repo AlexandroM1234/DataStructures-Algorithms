@@ -14,8 +14,11 @@ class MaxBinaryHeap {
   constructor() {
     this.values = [];
   }
+  /**
+   * Insert a value to the Binary Heap
+   * @param {*} val
+   */
   insert(val) {
-    // add the value to the end of the array
     this.values.push(val);
     // get the index of the newly added item and the value
     let index = this.values.length - 1;
@@ -33,7 +36,9 @@ class MaxBinaryHeap {
       index = parentIndex;
     }
   }
-  // remove the largest number from the heap
+  /**
+   *  Remove the largest number from the heap
+   */
   extractMax() {
     // get the largest number and the last value
     let max = this.values[0];

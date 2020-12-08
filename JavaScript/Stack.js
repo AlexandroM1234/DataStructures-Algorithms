@@ -30,8 +30,10 @@ class Stack {
     this.last = null;
     this.size = 0;
   }
-
-  // add a new node to the top of the stack
+  /**
+   * Add a new node to the top of the stack
+   * @param {*} val
+   */
   push(val) {
     // create a new node
     let newNode = new Node(val);
@@ -49,8 +51,9 @@ class Stack {
     // increment and return the size
     return ++this.size;
   }
-
-  // whatever the first node is it's gonna be the first one to be popped
+  /**
+   * Whatever the first node is it's gonna be the first one to be popped
+   */
   pop() {
     // if there is no first there is no stack
     if (!this.first) return null;

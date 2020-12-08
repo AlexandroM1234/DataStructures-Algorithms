@@ -9,8 +9,12 @@ class PriorityQueue {
   constructor() {
     this.values = [];
   }
+  /**
+   * Add the value to the end of the array
+   * @param {*} val
+   * @param {*} priority
+   */
   enqueue(val, priority) {
-    // add the value to the end of the array
     let newNode = new Node(val, priority);
     this.values.push(newNode);
     // get the index of the newly added item and the value
@@ -29,7 +33,9 @@ class PriorityQueue {
       index = parentIndex;
     }
   }
-  // remove the smallest number from the heap
+  /**
+   * Remove the smallest number from the heap
+   */
   dequeue() {
     // get the largest number and the last value
     let min = this.values[0];

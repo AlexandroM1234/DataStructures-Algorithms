@@ -16,13 +16,16 @@ class SinglyLinkedList {
     Searching =  O(N)
     Access  = O(N
   */
-  //Linked List has a head tail and length
+  // Linked List has a head tail and length
   constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
-  // Add a node at the end of the linked list
+  /**
+   * Add a node at the end of the linked list
+   * @param {*} val
+   */
   push(val) {
     // create a new node with a given value
     const newNode = new Node(val);
@@ -41,7 +44,9 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-  // remove from the tail
+  /**
+   * Remove from the tail
+   */
   pop() {
     // if there is no head return undefined because there are no nodes in the LL
     if (!this.head) return undefined;
@@ -71,7 +76,9 @@ class SinglyLinkedList {
       return current;
     }
   }
-  // remove from the head
+  /**
+   * Remove from the head
+   */
   shift() {
     // if there is no head return undefined
     if (!this.head) return undefined;
@@ -89,7 +96,10 @@ class SinglyLinkedList {
       return current;
     }
   }
-  // add a node to the beginning of the LL
+  /**
+   * Add a node to the beginning of the LL
+   * @param {*} val
+   */
   unshfit(val) {
     // create a new Node
     const newHead = new Node(val);
@@ -107,7 +117,10 @@ class SinglyLinkedList {
     this.length += 1;
     return this;
   }
-  // get the node at a certain index
+  /**
+   * Get the node at a certain index
+   * @param {*} index
+   */
   get(index) {
     // if index is less than zero or larger than the length of the LL return Null
     if (index >= this.length || index < 0) {
@@ -124,7 +137,11 @@ class SinglyLinkedList {
       return current;
     }
   }
-  // set a new value of a node with a given index
+  /**
+   * Set a new value of a node with a given index
+   * @param {*} index
+   * @param {*} val
+   */
   set(index, val) {
     // use get function to get the node we are looking for
     let node = this.get(index);
@@ -136,7 +153,11 @@ class SinglyLinkedList {
       return true;
     }
   }
-  // inserts a value at a certain index
+  /**
+   * Inserts a value at a certain index
+   * @param {*} index
+   * @param {*} val
+   */
   insert(index, val) {
     // if the index is greater than the length or negative return false
     if (index < 0 || index > this.length) return false;
@@ -162,7 +183,10 @@ class SinglyLinkedList {
       return true;
     }
   }
-  // remove a node given a certain index
+  /**
+   * Remove a node given a certain index
+   * @param {*} index
+   */
   remove(index) {
     //  if the index isn't valid return undefined
     if (index < 0 || index >= this.length) return undefined;
@@ -184,7 +208,9 @@ class SinglyLinkedList {
       return removeNode;
     }
   }
-  // reverse a linked list in place
+  /**
+   * Reverse a linked list in place
+   */
   reverse() {
     // setup a refrence to the head
     let node = this.head;

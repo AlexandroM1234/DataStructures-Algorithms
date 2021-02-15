@@ -58,3 +58,13 @@ class Trie:
             cur = cur.children[letter]
         # otherwise it exists so return true
         return True
+
+
+t = Trie()
+
+t.insert("word")
+t.insert("the")
+t.insert("what")
+t.startsWith("search")
+print(t.search("the"))
+print(t.root.children)
